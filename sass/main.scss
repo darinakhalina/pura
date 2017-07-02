@@ -1,0 +1,447 @@
+// ------ VARIABLES ------ //
+
+// colors
+$base-light: #fff;
+$base-dark: #222;
+$gray: #dfdfdf;
+$brand-primary: #fd3fb3;
+$brand-secondary: #fd3e4f;
+@mixin bg-gradient {
+  background: linear-gradient(45deg,$brand-primary 0%,$brand-secondary 100%);
+}
+
+// typography
+$browser-context: 16; // Default
+@function em($pixels, $context: $browser-context) {
+   @return #{$pixels/$context}em;
+}
+
+$font-size-sm: em(14);
+$font-size-base: em(16);
+$font-size-lg: em(20);
+$font-size-xl: em(35);
+$line-height: 1.429;
+$font-size-h1: em(40);
+
+$font-size-h2: em(20);
+$heading-line-height: 1.2;
+$font-size-jumbotron-h1: em(50);
+$font-size-jumbotron-h1-subheading: .5em;
+
+$btn-primary-color: $base-light;
+
+//jumbotron
+$jumbotron-bg: $base-dark;
+$jumbotron-color: $base-light;
+$jumbotron-padding-top: 97px;
+$jumbotron-padding-bottom: 150px;
+
+$main-nav-padding: 45px;
+
+$btn-height: 60px;
+$btn-radius: $btn-height;
+$btn-padding: 16px;
+
+$footer-padding-top: 90px;
+$footer-padding-bottom: 56px;
+
+$page-section-padding: 77px;
+
+// ------ ElEMENTS ------ //
+
+//grid
+
+[class^="col-"] {
+  float: left;
+  padding: {
+    left: 15px;
+    right: 15px;
+  }
+  width: 100%;
+  min-height: 1px;
+}
+
+$screen-sm: 640px;
+$screen-md: 800px;
+$screen-lg: 1024px;
+
+$grid-columns: 12;
+@media (min-width: $screen-sm) {
+   @for $i from 1 through $grid-columns{
+    .col-sm-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+@media (min-width: $screen-md) {
+   @for $i from 1 through $grid-columns{
+    .col-md-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+@media (min-width: $screen-lg) {
+   @for $i from 1 through $grid-columns{
+    .col-lg-#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
+}
+
+.row {
+  margin: {
+    left: -15px;
+    right: -15px;
+  }
+}
+
+//typography
+.title-l,
+h1 {
+  font-size: $font-size-h1;
+}
+
+.title-s,
+h2 {
+  font-size: $font-size-h2;
+}
+
+.title-l,
+.title-s,
+h1,
+h2 {
+  line-height: $heading-line-height;
+  font-weight: 700;
+  margin: {
+    top: 0;
+    bottom: 1.3em;
+  }
+}
+
+p {
+  margin: 0;
+}
+
+.text-l {
+  font-size: $font-size-xl;
+}
+
+.text-m {
+  font-size: $font-size-lg;
+}
+
+//nav
+.main-nav {
+  display: inline-block;
+}
+
+.nav {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+
+  &-right {
+    float: right;
+  }
+
+  &-left {
+    float: left;
+  }
+
+  li {
+    display: inline-block;
+  }
+
+  a {
+    text-decoration: none;
+    padding: {
+      top: $main-nav-padding;
+      bottom: $main-nav-padding;
+      left: $btn-padding;
+      right: $btn-padding;
+    }
+
+    &:hover {
+      color: $brand-primary;
+      transform: translateY(-5px);
+      transition: all .3ms ease-in;
+    }
+  }
+
+}
+
+// buttons
+.btn {
+  display: inline-block;
+  height: $btn-height;
+  padding: {
+    left: $btn-padding;
+    right: $btn-padding;
+  }
+  line-height: $btn-height;
+  text: {
+    align: center;
+    decoration: none;
+
+  }
+  color: $base-light;
+  font-weight: 700;
+
+  &-l {
+    font-size: $font-size-lg;
+  }
+
+  &-primary {
+    @include bg-gradient;
+  }
+
+  &-default {
+    border: 2px solid $base-light;
+    border-radius: $btn-radius;
+  }
+
+  &-block {
+    width: 100%;
+  }
+}
+
+//jumbotron
+.jumbotron {
+  background-color: $jumbotron-bg;
+  color: $jumbotron-color;
+  text-align: center;
+  padding: {
+    top: $jumbotron-padding-top;
+    bottom: $jumbotron-padding-bottom;
+  }
+
+  .btn-holder {
+    width: 185px;
+    margin: {
+      left: auto;
+      right: auto;
+      top: 5em;
+    }
+  }
+
+  h1 {
+    font-size: $font-size-jumbotron-h1;
+
+    small {
+      display: block;
+      font-size: $font-size-jumbotron-h1-subheading;
+      font-weight: 400;
+      margin-bottom: 1.2em;
+    }
+  }
+}
+
+//thumbnail
+.thumbnail {
+  text-align: center;
+  margin-top: 25px;
+
+  .thumbnail-caption {
+    margin-top: 10px;
+
+    .title-s {
+      margin-bottom: -4px;
+    }
+  }
+}
+
+//media
+.media {
+  padding-top: .8em;
+  margin-bottom: 52px;
+
+  &-heading {
+    font-size: $font-size-h2;
+    line-height: $heading-line-height;
+  }
+
+  p {
+    font-size: $font-size-sm;
+  }
+
+}
+
+// ------ LAYOUT ------ //
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  font-size: $font-size-base;
+  line-height: $line-height;
+  color: $base-light;
+}
+
+.clearfix,
+.container,
+.container-fluid,
+.row {
+  &:after,
+  &:before {
+    content: " ";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+
+}
+
+.page-section {
+  padding: {
+    top: $page-section-padding;
+    bottom: $page-section-padding;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  padding: {
+    left: 20px;
+    right: 20px;
+  }
+  margin: {
+    left: auto;
+    right: auto;
+  }
+
+  &-fluid {
+    padding: {
+      left: 15px;
+      right: 15px;
+    }
+  }
+
+}
+
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  background-color: $base-dark;
+  color: $base-light;
+  text-align: center;
+
+  a {
+    color: inherit;
+    display: inline-block;
+  }
+}
+
+footer {
+  font-size: $font-size-sm;
+  color: $base-dark;
+  padding: {
+    top: $footer-padding-top;
+    bottom: $footer-padding-bottom;
+  }
+
+  .brand-logo {
+    font-size: 25px;
+    margin-bottom: 60px;
+
+    span {
+      font-size: 80px;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+}
+
+.section-about-us {
+  @include bg-gradient;
+}
+
+.about-us-container {
+  .btn-holder {
+    float: right;
+    width: 200px;
+    margin: {
+      top: 1.6em;
+      bottom: .3em;
+    }
+
+    .icon-right {
+      margin-left: .5em;
+    }
+
+  }
+}
+
+.section-process {
+  color: $base-dark;
+
+  .media {
+    position: relative;
+    padding-top: 1.8em;
+
+    &-object {
+      span {
+        position: absolute;
+        top: 8px;
+        left: -3px;
+        z-index: 1;
+        display: block;
+        color: lighten($brand-primary, 30%);
+        font: {
+          size: 120px;
+          weight: 700;
+        }
+      }
+    }
+
+    p {
+      position: relative;
+      z-index: 3;
+    }
+
+    &-heading {
+      position: relative;
+      z-index: 3;
+    }
+
+  }
+
+}
+
+.section-team {
+  color: $base-dark;
+  padding: {
+    top: 107px;
+    bottom: 147px;
+  }
+}
+
+.section-features {
+  background-color: $base-dark;
+  padding: {
+    top: 105px;
+    bottom: 117px;
+  }
+
+  .title-l {
+    margin: {
+      top: 38px;
+      bottom: 1em;
+    }
+  }
+}
+
+.features-container {
+  em {
+    color: $brand-secondary;
+  }
+}
