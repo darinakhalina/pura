@@ -187,6 +187,11 @@ p {
   color: $base-light;
   font-weight: 700;
 
+  &:hover {
+    transform: translateY(-5px);
+    transition: all .3ms ease-in;
+  }
+
   &-l {
     font-size: $font-size-lg;
   }

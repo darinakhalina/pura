@@ -151,6 +151,13 @@ p {
   text-decoration: none;
   color: #fff;
   font-weight: 700; }
+  .btn:hover {
+    -webkit-transform: translateY(-5px);
+        -ms-transform: translateY(-5px);
+            transform: translateY(-5px);
+    -webkit-transition: all .3ms ease-in;
+    -o-transition: all .3ms ease-in;
+    transition: all .3ms ease-in; }
   .btn-l {
     font-size: 1.25em; }
   .btn-primary {
@@ -159,8 +166,7 @@ p {
     background: linear-gradient(45deg, #fd3fb3 0%, #fd3e4f 100%); }
   .btn-default {
     border: 2px solid #fff;
-    -webkit-border-radius: 60px;
-            border-radius: 60px; }
+    border-radius: 60px; }
   .btn-block {
     width: 100%; }
 
